@@ -106,3 +106,10 @@ void listabidRetrocede(ListaBid *l){
         l->pdi=l->pdi->anterior;
     }
 }
+
+int listabidFinal(ListaBid l){
+    return l.pdi==l.last;
+}
+int listabidInicio(ListaBid l){
+    return l.pdi==l.first;
+}
