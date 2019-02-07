@@ -98,3 +98,11 @@ void listabidAvanza(ListaBid *l){
         printf("Error al avanzar\n");
     }
 }
+void listabidRetrocede(ListaBid *l){
+    if(l->pdi==l->first)
+    {
+        printf("Error al retroceder\n");
+    }else{
+        l->pdi=l->pdi->anterior;
+    }
+}
