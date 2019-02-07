@@ -21,3 +21,11 @@ void llenarLista(ListaBid *lista)
     listabidIntroduceOrdenado(lista, 24);
     listabidIntroduceOrdenado(lista, 8);
 }
+
+void main() {
+    ListaBid lista;
+    lista = listabidCreate();
+    llenarLista(&lista);
+    printf("Mostramos la lista\n");
+    mostrarLista(&lista);
+}
