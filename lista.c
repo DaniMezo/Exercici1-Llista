@@ -113,3 +113,10 @@ int listabidFinal(ListaBid l){
 int listabidInicio(ListaBid l){
     return l.pdi==l.first;
 }
+
+void listabidGoFirst(ListaBid *l){
+    l->pdi=l->first->seguent;
+}
+void listabidGoLast(ListaBid *l){
+    l->pdi=l->last->anterior;
+}
