@@ -77,3 +77,16 @@ Element listabidConsulta(ListaBid l){
     }
     return e;
 }
+void listabidBorrar(ListaBid *l){
+    Node *aux;
+    if(l->pdi==l->first || l->pdi == l->last)
+    {
+        printf("Error\n");
+    }else{
+        aux=l->pdi;
+        l->pdi=l->pdi->seguent;
+        aux->anterior->seguent=aux->seguent;
+        aux->seguent->anterior=aux->anterior;
+        free(aux);
+    }
+}
