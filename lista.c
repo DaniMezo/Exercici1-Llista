@@ -120,3 +120,18 @@ void listabidGoFirst(ListaBid *l){
 void listabidGoLast(ListaBid *l){
     l->pdi=l->last->anterior;
 }
+
+int listabidBacia(ListaBid l){
+    return l.first->seguent==l.last;
+}
+void listabidDestruye(ListaBid *l){
+    Node *aux;
+    aux=l->first;
+    while(l->first != NULL){
+        aux = l->first;
+        l->first = l->first->seguent;
+        free(aux);
+    }
+    l->last = NULL;
+    l->pdi = NULL;
+}
