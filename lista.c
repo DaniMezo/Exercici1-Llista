@@ -67,3 +67,13 @@ void listabidIntroduceOrdenado(ListaBid *l, Element e){
         }
     }
 }
+Element listabidConsulta(ListaBid l){
+    Element e;
+
+    if (l.pdi==l.first || l.pdi==l.last) {
+        printf("No se puede consultar el elemento\n");
+    }else{
+        e = l.pdi->e;
+    }
+    return e;
+}
