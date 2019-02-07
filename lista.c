@@ -90,3 +90,11 @@ void listabidBorrar(ListaBid *l){
         free(aux);
     }
 }
+void listabidAvanza(ListaBid *l){
+    if(l->pdi->seguent!=NULL)
+    {
+        l->pdi=l->pdi->seguent;
+    }else{
+        printf("Error al avanzar\n");
+    }
+}
