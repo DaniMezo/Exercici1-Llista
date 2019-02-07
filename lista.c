@@ -24,3 +24,46 @@ ListaBid listabidCreate(){
     }
     return l;
 }
+
+void listabidIntroduceOrdenado(ListaBid *l, Element e){
+    Node *aux;
+    int trobat=0;
+    Node *pdi;
+    aux=(Node *) malloc(sizeof(Node));
+    if(aux==NULL){
+        printf("Error al insertar l'element\n");
+    }else{
+        aux->e=e;
+        pdi = l->pdi;
+        l->pdi=l->first->seguent;
+        if(l->first->seguent==l->last)
+        {
+            aux->seguent=l->pdi;
+            aux->anterior=l->pdi->anterior;
+            aux->anterior->seguent=aux;
+            l->pdi->anterior=aux;
+        }else{
+            l->pdi=l->first->seguent;
+            while(!trobat && l->pdi->seguent !=NULL){
+                if(l->pdi->e <=e){
+                    l->pdi = l->pdi->seguent;
+                }else{
+                    trobat=1;
+                    aux->anterior=l->pdi->anterior;
+                    aux->anterior->seguent=aux;
+                    aux->seguent=l->pdi;
+                    l->pdi->anterior=aux;
+                }
+            }
+            if(!trobat)
+            {
+                l->pdi=l->last;
+                aux->seguent=l->pdi;
+                aux->anterior=l->pdi->anterior;
+                aux->anterior->seguent=aux;
+                l->pdi->anterior=aux;
+            }
+            l->pdi=pdi;
+        }
+    }
+}
